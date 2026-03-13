@@ -25,3 +25,16 @@ Ansible brukes fra VM1 til VM2 for å:
 - opprette to brukere
 - legge brukerne i gruppen
 - installere nginx
+
+## Struktur
+
+```text
+ST---Arbeidskrav-1
+│
+├── main.tf
+├── .gitignore
+├── README.md
+│
+└── ansible
+    ├── inventory.ini
+    ├── playbook.yml
