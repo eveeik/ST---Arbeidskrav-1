@@ -1,0 +1,32 @@
+---
+- name: Konfigurer VM2
+  hosts: vm
+  become: true
+
+  tasks:
+    - name: Opprett gruppe
+      ansible.builtin.group:
+        name: driftgruppe
+        state: present
+
+    - name: Opprett bruker1
+      ansible.builtin.user:
+        name: bruker1
+        groups: driftgruppe
+        append: true
+        create_home: true
+        state: present
+
+    - name: Opprett bruker2
+      ansible.builtin.user:
+        name: bruker2
+        groups: driftgruppe
+        append: true
+        create_home: true
+        state: present
+
+    - name: Installer nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
